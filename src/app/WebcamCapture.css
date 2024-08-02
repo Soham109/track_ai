@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #505c68;
+    color: rgb(216, 211, 211);
+    font-family: Arial, sans-serif;
+    border-radius: 10px 10px 0 0;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.webcam-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap; 
+}
+
+.webcam-wrapper, .captured-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%; 
+}
+
+.webcam, .captured-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.capture-button,
+.upload-button {
+    padding: 10px 20px;
+    background-color: #004080;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding-bottom:10px;
+}
+
+.capture-button:hover,
+.upload-button:hover {
+    background-color: #002060;
+}
+
+.message {
+    background-color: #f0f0f5;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 10px 10px;
+}
+
+.message pre {
+    margin: 0;
+    overflow-x: auto; 
+}
+
+@media (max-width: 768px) {
+    .webcam-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .webcam-wrapper, .captured-wrapper {
+        width: 80%;
+    }
+}
