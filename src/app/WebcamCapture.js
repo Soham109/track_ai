@@ -116,7 +116,7 @@ const WebcamCapture = () => {
     <Container>
       {user ? (
         <>
-          <Typography variant="h4" gutterBottom>Pantry Tracker</Typography>
+          <Typography variant="h4" gutterBottom>TrackAI</Typography>
           <Button onClick={handleSignOut} variant="contained" color="secondary" style={{ marginBottom: '16px' }}>
             Sign Out
           </Button>
