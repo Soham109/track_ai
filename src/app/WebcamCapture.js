@@ -16,6 +16,7 @@ const WebcamCapture = () => {
   const [itemName, setItemName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [pantryItems, setPantryItems] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [user, setUser] = useState(null);
   const [showSignUp, setShowSignUp] = useState(false); 
 
@@ -75,6 +76,10 @@ const WebcamCapture = () => {
   };
 
   const updateItem = async (id, updatedQuantity) => {
+    if (updatedQuantity < 0) {
+      setMessage("Quantity cannot be less than zero");
+      return;
+    }
     await updateDoc(doc(db, 'pantry', id), { quantity: updatedQuantity });
     setMessage("Item updated");
     fetchPantryItems();
@@ -102,6 +107,10 @@ const WebcamCapture = () => {
     fetchPantryItems(); 
     return () => unsubscribe();
   }, []);
+
+  const filteredPantryItems = pantryItems.filter(item =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <Container>
@@ -166,14 +175,26 @@ const WebcamCapture = () => {
             </Grid>
             <Grid item xs={12}>
               <Paper elevation={3} style={{ padding: '16px' }}>
+                <Typography variant="h6" gutterBottom>Search Pantry Items</Typography>
+                <TextField
+                  label="Search Items"
+                  variant="outlined"
+                  fullWidth
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  style={{ marginBottom: '16px' }}
+                />
                 <Typography variant="h6" gutterBottom>Pantry Items</Typography>
-                {pantryItems.map(item => (
+                {filteredPantryItems.map(item => (
                   <Card key={item.id} style={{ marginBottom: '16px' }}>
                     <CardContent>
                       <Typography variant="h6">{item.name}</Typography>
                       <Typography>Quantity: {item.quantity}</Typography>
                       <Button onClick={() => updateItem(item.id, item.quantity + 1)} variant="contained" color="primary" style={{ marginRight: '8px' }}>
-                        Increase Quantity
+                        +
+                      </Button>
+                      <Button onClick={() => updateItem(item.id, item.quantity - 1)} variant="contained" color="primary" style={{ marginRight: '8px' }}>
+                        -
                       </Button>
                       <Button onClick={() => removeItem(item.id)} variant="contained" color="secondary">
                         Remove Item
