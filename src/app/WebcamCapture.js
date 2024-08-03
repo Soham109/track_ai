@@ -35,7 +35,7 @@ const WebcamCapture = () => {
   
       const response = await fetch(image);
       const blob = await response.blob();
-  
+      console.log(process.env.api);
       const apiResponse = await fetch('https://image-intellect-ai.cognitiveservices.azure.com/vision/v3.2/analyze?visualFeatures=Categories,Description,Color', {
         method: 'POST',
         headers: {
