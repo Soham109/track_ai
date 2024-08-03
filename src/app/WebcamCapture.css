@@ -121,3 +121,14 @@ body {
   button, a, input[type="button"], input[type="submit"], .btn, .button {
     cursor: none !important;
   }
+  @media (pointer: coarse) {
+    .cursor {
+      display: none;
+    }
+    * {
+      cursor: auto;
+    }
+    button, a, input[type="button"], input[type="submit"], .btn, .button {
+      cursor: auto !important;
+    }
+  }
