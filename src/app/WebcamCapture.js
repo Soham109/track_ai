@@ -198,7 +198,7 @@ const WebcamCapture = () => {
           <AppBar position="static" sx={{ backgroundColor: '#333', color: '#fff' }}>
             <Toolbar>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Pantry
+                TrackAI
               </Typography>
               {user.photoURL && (
                 <img src={user.photoURL} alt="Profile" className="profile-pic" style={{ borderRadius: '50%', width: '40px', marginRight: '10px' }} />
@@ -212,7 +212,7 @@ const WebcamCapture = () => {
             </Toolbar>
           </AppBar>
           <Typography variant="h4" component="div" sx={{ marginBottom: '20px', fontWeight: 'bold' }}>
-            TrackAI
+            
           </Typography>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
