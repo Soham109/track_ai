@@ -4,8 +4,7 @@ import WebcamCapture from './WebcamCapture';
 
 function App() {
   return (
-    <div className="App">
-      
+    <div className="App">     
       <header className="App-header">
         <WebcamCapture />
       </header>
