@@ -9,99 +9,108 @@ body {
     min-height: 100vh;
     color: #333;
     cursor: none;
-}
-
-.container {
+  }
+  
+  .container {
     width: 90%;
     max-width: 1200px;
     margin: auto;
-}
-
-.header {
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
     text-align: center;
     padding: 20px;
     background-color: #505c68;
     color: rgb(216, 211, 211);
     font-family: Arial, sans-serif;
-    border-radius: 10px 10px 0 0;
-}
-
-.header h1 {
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .header h1 {
     margin: 0;
-}
-
-.content {
+  }
+  
+  .content {
     display: flex;
     flex-direction: column;
     background-color: white;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 20px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.webcam-container {
+    padding: 20px;
+  }
+  
+  .webcam-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-    flex-wrap: wrap; 
-}
-
-.webcam-wrapper, .captured-wrapper {
+    flex-wrap: wrap;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .webcam-wrapper, .captured-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 45%; 
-}
-
-.webcam, .captured-image {
+    width: 45%;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .webcam, .captured-image {
     width: 100%;
     max-width: 500px;
     height: auto;
     border: 2px solid #ddd;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-bottom: 20px;
-}
-
-.capture-button,
-.upload-button {
+  }
+  
+  .capture-button,
+  .upload-button {
     padding: 10px 20px;
     background-color: #004080;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    padding-bottom:10px;
-}
-
-.capture-button:hover,
-.upload-button:hover {
+    padding-bottom: 10px;
+  }
+  
+  .capture-button:hover,
+  .upload-button:hover {
     background-color: #002060;
-}
-
-.message {
+  }
+  
+  .message {
     background-color: #f0f0f5;
     padding: 20px;
     border-top: 1px solid #ddd;
-    border-radius: 0 0 10px 10px;
-}
-
-.message pre {
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .message pre {
     margin: 0;
-    overflow-x: auto; 
-}
-
-@media (max-width: 768px) {
+    overflow-x: auto;
+    border-radius: 20px;
+  }
+  
+  @media (max-width: 768px) {
     .webcam-container {
-        flex-direction: column;
-        align-items: center;
+      flex-direction: column;
+      align-items: center;
     }
-
+  
     .webcam-wrapper, .captured-wrapper {
-        width: 80%;
+      width: 80%;
     }
-}
-.cursor {
+  }
+  
+  .cursor {
     position: absolute;
     top: 0;
     left: 0;
@@ -114,20 +123,24 @@ body {
     z-index: 1000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
-
+  
   * {
     cursor: none;
   }
+  
   button, a, input[type="button"], input[type="submit"], .btn, .button {
     cursor: none !important;
   }
+  
   @media (pointer: coarse) {
     .cursor {
       display: none;
     }
+  
     * {
       cursor: auto;
     }
+  
     button, a, input[type="button"], input[type="submit"], .btn, .button {
       cursor: auto !important;
     }

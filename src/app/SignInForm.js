@@ -38,9 +38,9 @@ const SignInForm = ({ onSignIn }) => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Paper elevation={3} sx={{ padding: '32px', marginTop: '16px' }}>
-        <Typography variant="h4" gutterBottom align="center">Sign In</Typography>
+    <Container maxWidth="sm" sx={{ borderRadius: '20px' }}>
+      <Paper elevation={3} sx={{ padding: '32px', marginTop: '16px', borderRadius: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+        <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 'bold' }}>Sign In</Typography>
         <form onSubmit={handleSignIn}>
           <TextField
             label="Email"
@@ -49,7 +49,7 @@ const SignInForm = ({ onSignIn }) => {
             fullWidth
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            sx={{ marginBottom: '16px' }}
+            sx={{ marginBottom: '16px', borderRadius: '20px' }}
             required
           />
           <TextField
@@ -59,18 +59,18 @@ const SignInForm = ({ onSignIn }) => {
             fullWidth
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            sx={{ marginBottom: '16px' }}
+            sx={{ marginBottom: '16px', borderRadius: '20px' }}
             required
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ padding: '12px', marginBottom: '16px' }} disabled={loading}>
+          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ padding: '12px', marginBottom: '16px', borderRadius: '20px' }} disabled={loading}>
             {loading ? <CircularProgress size={24} /> : 'Sign In'}
           </Button>
-          <Button onClick={handleGoogleSignIn} variant="contained" color="secondary" fullWidth sx={{ padding: '12px' }} disabled={loading}>
+          <Button onClick={handleGoogleSignIn} variant="contained" color="secondary" fullWidth sx={{ padding: '12px', borderRadius: '20px' }} disabled={loading}>
             {loading ? <CircularProgress size={24} /> : 'Sign in with Google'}
           </Button>
         </form>
         {message && (
-          <Typography variant="body1" color="error" align="center" sx={{ marginTop: '16px' }}>
+          <Typography variant="body1" color="error" align="center" sx={{ marginTop: '16px', borderRadius: '20px' }}>
             {message}
           </Typography>
         )}
