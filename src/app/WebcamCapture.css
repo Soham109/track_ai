@@ -102,7 +102,7 @@ body {
 }
 
 .cursor {
-    position: fixed; /* Changed to fixed to prevent detachment on scroll */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 20px;
@@ -112,7 +112,7 @@ body {
     pointer-events: none;
     z-index: 1000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.05s; /* Smooth transition using transform */
+    transition: transform 0.05s; 
 }
 
 * {
