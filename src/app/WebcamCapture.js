@@ -153,12 +153,56 @@ const WebcamCapture = () => {
     }
   }, [user]);
 
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      const cursor = document.querySelector('.cursor');
+      const x = event.clientX;
+      const y = event.clientY;
+  
+      cursor.style.transform = `translate(${x}px, ${y}px)`;
+    };
+  
+    document.addEventListener('mousemove', handleMouseMove);
+  
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+  
+  const [mouseX, setMouseX] = useState(0);
+  const [mouseY, setMouseY] = useState(0);
+  
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      setMouseX(event.clientX);
+      setMouseY(event.clientY);
+    };
+  
+    document.addEventListener('mousemove', handleMouseMove);
+  
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+  
+  useEffect(() => {
+    const updateCursor = () => {
+      const cursor = document.querySelector('.cursor');
+  
+      cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      requestAnimationFrame(updateCursor);
+    };
+  
+    updateCursor();
+  }, [mouseX, mouseY]);
+
 
   const filteredPantryItems = pantryItems.filter(item =>
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
   return (
     <Container maxWidth="lg" sx={{ padding: '20px', backgroundColor: '#f7f7f7' }}>
+      <div className='cursor'></div>
       {user ? (
         <>
           <AppBar position="static" sx={{ backgroundColor: '#333', color: '#fff' }}>

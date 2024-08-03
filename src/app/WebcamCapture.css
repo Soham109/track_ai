@@ -8,6 +8,7 @@ body {
     align-items: center;
     min-height: 100vh;
     color: #333;
+    cursor: none;
 }
 
 .container {
@@ -100,3 +101,23 @@ body {
         width: 80%;
     }
 }
+.cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #ff69b4, #33ccff);
+    transition: top 0.05s, left 0.05s;
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  * {
+    cursor: none;
+  }
+  button, a, input[type="button"], input[type="submit"], .btn, .button {
+    cursor: none !important;
+  }
