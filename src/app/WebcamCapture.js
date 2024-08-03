@@ -32,36 +32,26 @@ const WebcamCapture = () => {
   const uploadImage = async () => {
     if (image) {
       setMessage("Uploading photo...");
+  
       const response = await fetch(image);
       const blob = await response.blob();
-
-      try {
-        const apiResponse = await fetch(`https://image-intellect-ai.cognitiveservices.azure.com/vision/v3.2/analyze?visualFeatures=Categories,Description,Color`, {
-          method: 'POST',
-          headers: {
-            'Ocp-Apim-Subscription-Key': '79892cfe82f0486a9e571b26140613a1',
-            'Content-Type': 'application/octet-stream',
-          },
-          body: blob,
-        });
-
-        const result = await apiResponse.json();
-        const formattedText = formatResponse(result);
-        setMessage(formattedText);
-        setItemName(formattedText);
-      } catch (error) {
-        console.error("Error uploading image:", error);
-        setMessage("Failed to upload image");
-      }
+  
+      const apiResponse = await fetch('https://image-intellect-ai.cognitiveservices.azure.com/vision/v3.2/analyze?visualFeatures=Categories,Description,Color', {
+        method: 'POST',
+        headers: {
+          'Ocp-Apim-Subscription-Key': '79892cfe82f0486a9e571b26140613a1',
+          'Content-Type': 'application/octet-stream',
+        },
+        body: blob,
+      });
+  
+      const result = await apiResponse.json();
+      const itemName = result.description.tags[0];
+      setMessage(`Item detected: ${itemName}`);
+      setItemName(itemName);
     }
   };
 
-  const formatResponse = (response) => {
-    if (response.description && response.description.tags && response.description.tags.length > 0) {
-      return response.description.tags[0];
-    }
-    return "";
-  };
 
   const addItem = async () => {
     if (itemName && quantity && user) {
